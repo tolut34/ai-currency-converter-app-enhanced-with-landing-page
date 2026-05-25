@@ -1,0 +1,12 @@
+App Name: Fluxo
+
+Colors:
+#0B0F19
+#111827
+#5334F5
+#00E599
+#FF3B30
+
+Typography:
+Inter
+Plus Jakarta Sans

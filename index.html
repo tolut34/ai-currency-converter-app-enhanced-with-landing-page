@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valut — Premium Currency & Global Flow Dashboard</title>
+    <!-- Google Fonts: Inter and Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js for beautiful historical charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="logo-wrapper">
+                    <!-- SVG logo matching the Valut logo style -->
+                    <svg class="valut-logo" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 8L12.5 19L19 8" stroke="url(#logo-grad-1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 24L19.5 13L26 24" stroke="url(#logo-grad-2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="logo-grad-1" x1="6" y1="8" x2="19" y2="19" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#5334F5"/>
+                                <stop offset="1" stop-color="#00E599"/>
+                            </linearGradient>
+                            <linearGradient id="logo-grad-2" x1="13" y1="13" x2="26" y2="24" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#00E599"/>
+                                <stop offset="1" stop-color="#5334F5"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="brand-name">Valut</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">Menu</span>
+                    <a href="#" class="nav-item active" data-view="dashboard" id="nav-dashboard">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-item" data-view="converter" id="nav-converter">
+                        <i data-lucide="refresh-cw"></i>
+                        <span>Converter</span>
+                    </a>
+                    <a href="#" class="nav-item" data-view="history" id="nav-history">
+                        <i data-lucide="history"></i>
+                        <span>History</span>
+                    </a>
+                    <a href="#" class="nav-item" data-view="analytics" id="nav-analytics">
+                        <i data-lucide="line-chart"></i>
+                        <span>Analytics</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">Preferences</span>
+                    <a href="#" class="nav-item" data-view="settings" id="nav-settings">
+                        <i data-lucide="settings"></i>
+                        <span>Settings</span>
+                    </a>
+                    <a href="#" class="nav-item" data-view="help" id="nav-help">
+                        <i data-lucide="help-circle"></i>
+                        <span>Help & Support</span>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Upgrade Card (Fintech Inspiration) -->
+            <div class="upgrade-card">
+                <div class="upgrade-icon">
+                    <i data-lucide="zap"></i>
+                </div>
+                <h3>Upgrade to Pro</h3>
+                <p>Unlock advanced analytics and real-time alerts.</p>
+                <button class="btn-upgrade">Go Pro — $15/mo</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="navbar">
+                <div class="navbar-left">
+                    <h1 class="page-title">Dashboard Overview</h1>
+                    <p class="page-subtitle" id="current-date">Tuesday, May 19, 2026</p>
+                </div>
+
+                <div class="navbar-right">
+                    <!-- Search Bar -->
+                    <div class="search-bar">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="global-search" placeholder="Search currencies, symbols...">
+                    </div>
+
+                    <!-- Notification Button -->
+                    <button class="nav-action-btn" aria-label="Notifications">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-indicator"></span>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button class="nav-action-btn" id="theme-toggle" aria-label="Toggle Theme">
+                        <i data-lucide="moon"></i>
+                    </button>
+
+                    <!-- User Profile Button -->
+                    <div class="user-profile">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80" alt="Ferra Alexandra" class="avatar">
+                        <div class="user-info">
+                            <span class="user-name">Ferra Alexandra</span>
+                            <span class="user-role">Premium Account</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="profile-arrow"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Views Container -->
+            <div class="views-container">
+                
+                <!-- VIEW 1: DASHBOARD -->
+                <div id="view-dashboard" class="view-pane active">
+                    <!-- Analytics Overview Cards -->
+                    <section class="analytics-cards">
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <div class="card-icon-wrapper secondary">
+                                    <i data-lucide="trending-up"></i>
+                                </div>
+                                <span class="trend-badge positive" id="rate-trend-badge">+1.24%</span>
+                            </div>
+                            <div class="card-body">
+                                <span class="card-label">EUR / USD Rate</span>
+                                <h2 class="card-value" id="card-rate-val">1.0924</h2>
+                            </div>
+                            <div class="card-footer">
+                                <span class="card-subtext">Live Market Exchange Rate</span>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <div class="card-icon-wrapper alert">
+                                    <i data-lucide="activity"></i>
+                                </div>
+                                <span class="trend-badge positive">Low</span>
+                            </div>
+                            <div class="card-body">
+                                <span class="card-label">Market Volatility</span>
+                                <h2 class="card-value">0.34%</h2>
+                            </div>
+                            <div class="card-footer">
+                                <span class="card-subtext">Stable conversion period</span>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card" style="cursor: pointer;" id="card-btn-favorites">
+                            <div class="card-header">
+                                <div class="card-icon-wrapper success">
+                                    <i data-lucide="star"></i>
+                                </div>
+                                <span class="trend-badge neutral">Active</span>
+                            </div>
+                            <div class="card-body">
+                                <span class="card-label">Favorite Currencies</span>
+                                <h2 class="card-value"><span id="favorites-count">3</span> <span class="unit">Pairs</span></h2>
+                            </div>
+                            <div class="card-footer">
+                                <span class="card-subtext">Shortcuts pinned below</span>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <div class="card-icon-wrapper primary">
+                                    <i data-lucide="arrow-left-right"></i>
+                                </div>
+                                <span class="trend-badge positive" id="conversions-change">+12.1%</span>
+                            </div>
+                            <div class="card-body">
+                                <span class="card-label">Weekly Conversions</span>
+                                <h2 class="card-value" id="total-conversions-count">24</h2>
+                            </div>
+                            <div class="card-footer">
+                                <span class="card-subtext">Conversions vs last week</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Main Dashboard Layout Grid -->
+                    <div class="dashboard-grid-layout">
+                        <!-- Left Panel: Converter and Chart -->
+                        <div class="grid-layout-left">
+                            
+                            <!-- Exchange Converter Widget -->
+                            <div class="exchange-widget card-glow">
+                                <div class="widget-header">
+                                    <h3>Quick Exchange</h3>
+                                    <button class="favorite-toggle-btn" id="favorite-pair-btn" title="Add pair to favorites">
+                                        <i data-lucide="star"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="widget-body">
+                                    <div class="input-row">
+                                        <div class="input-col">
+                                            <label for="from-amount">You Sell</label>
+                                            <input type="number" id="from-amount" value="100" min="0" step="any">
+                                        </div>
+                                        <div class="select-col">
+                                            <select id="from-currency" class="currency-select">
+                                                <option value="EUR" selected>EUR — Euro</option>
+                                                <option value="USD">USD — US Dollar</option>
+                                                <option value="GBP">GBP — British Pound</option>
+                                                <option value="JPY">JPY — Japanese Yen</option>
+                                                <option value="AUD">AUD — Australian Dollar</option>
+                                                <option value="CAD">CAD — Canadian Dollar</option>
+                                                <option value="CHF">CHF — Swiss Franc</option>
+                                                <option value="CNY">CNY — Chinese Yuan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Swap Button -->
+                                    <div class="swap-divider">
+                                        <hr class="divider-line">
+                                        <button class="swap-btn" id="swap-currencies-btn" title="Swap currencies">
+                                            <i data-lucide="arrow-up-down"></i>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="input-row">
+                                        <div class="input-col">
+                                            <label for="to-amount">You Receive</label>
+                                            <input type="number" id="to-amount" value="109.24" readonly>
+                                        </div>
+                                        <div class="select-col">
+                                            <select id="to-currency" class="currency-select">
+                                                <option value="EUR">EUR — Euro</option>
+                                                <option value="USD" selected>USD — US Dollar</option>
+                                                <option value="GBP">GBP — British Pound</option>
+                                                <option value="JPY">JPY — Japanese Yen</option>
+                                                <option value="AUD">AUD — Australian Dollar</option>
+                                                <option value="CAD">CAD — Canadian Dollar</option>
+                                                <option value="CHF">CHF — Swiss Franc</option>
+                                                <option value="CNY">CNY — Chinese Yuan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="rate-status-info">
+                                        <span class="rate-text">1 <span class="from-lbl">EUR</span> = <span class="rate-val">1.0924</span> <span class="to-lbl">USD</span></span>
+                                        <span class="update-status"><span class="pulse-indicator"></span> Real-time Rate</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="widget-footer">
+                                    <button class="btn-convert" id="convert-submit-btn">
+                                        <span class="btn-txt">Convert Currency</span>
+                                        <!-- Loading Spinner inside button -->
+                                        <div class="spinner" id="converter-spinner" style="display: none;"></div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Historical Chart Section -->
+                            <div class="analytics-chart-widget">
+                                <div class="chart-header">
+                                    <div class="chart-title-area">
+                                        <h3 id="chart-pair-name">EUR to USD Historical Trend</h3>
+                                        <span class="chart-subtitle">Historical Exchange Rate Analysis</span>
+                                    </div>
+                                    <!-- Timeframe selection tabs -->
+                                    <div class="chart-timeframes">
+                                        <button class="tf-btn active" data-timeframe="7D">7D</button>
+                                        <button class="tf-btn" data-timeframe="1M">1M</button>
+                                        <button class="tf-btn" data-timeframe="1Y">1Y</button>
+                                    </div>
+                                </div>
+                                <div class="chart-body-container">
+                                    <canvas id="historicalChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Market Trends and Recent History -->
+                        <div class="grid-layout-right">
+                            <!-- Favorite Pairs Shortcuts -->
+                            <div class="favorites-shortcut-card">
+                                <div class="section-title-row">
+                                    <h3>Favorite Shortcuts</h3>
+                                </div>
+                                <div class="favorites-list" id="favorites-container">
+                                    <!-- Dynamic Favorites will be injected here -->
+                                </div>
+                            </div>
+
+                            <!-- Market Trends widget -->
+                            <div class="trends-widget">
+                                <div class="section-title-row">
+                                    <h3>Market Rates</h3>
+                                    <span class="time-stamp">Base EUR</span>
+                                </div>
+                                <div class="trends-list" id="trends-container">
+                                    <!-- Market rows injected dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Recent Conversion Activity -->
+                            <div class="recent-activity-card">
+                                <div class="section-title-row">
+                                    <h3>Recent Conversions</h3>
+                                    <button class="btn-text-only" id="btn-see-all-history">See all</button>
+                                </div>
+                                <div class="activity-table-wrapper">
+                                    <table class="activity-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>Pair</th>
+                                                <th>Sold</th>
+                                                <th>Received</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="dashboard-recent-history">
+                                            <!-- Dynamically populated -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 2: CONVERTER (FOCUSED VIEW) -->
+                <div id="view-converter" class="view-pane">
+                    <div class="focused-view-container">
+                        <div class="focused-title">
+                            <h2>Currency Exchange Station</h2>
+                            <p>Perform premium instant currency exchanges with live rates.</p>
+                        </div>
+                        <div class="converter-showcase">
+                            <!-- We will replicate the converter widget inside here for full view -->
+                            <div id="converter-focused-placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 3: HISTORY (DETAILED TABLE) -->
+                <div id="view-history" class="view-pane">
+                    <div class="history-view-container">
+                        <div class="history-header">
+                            <div class="header-left">
+                                <h2>Conversion History</h2>
+                                <p>Track all previous exchange transactions saved in SQLite local logs.</p>
+                            </div>
+                            <div class="header-actions">
+                                <button class="btn-outline-danger" id="clear-history-btn">
+                                    <i data-lucide="trash-2"></i>
+                                    <span>Clear History Log</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-card">
+                            <div class="table-header-filters">
+                                <div class="filter-search">
+                                    <i data-lucide="search"></i>
+                                    <input type="text" id="history-search" placeholder="Filter by currency (e.g. USD, EUR)...">
+                                </div>
+                            </div>
+                            <div class="detailed-table-wrapper">
+                                <table class="detailed-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>From Currency</th>
+                                            <th>Amount Sold</th>
+                                            <th>To Currency</th>
+                                            <th>Amount Received</th>
+                                            <th>Exchange Rate</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detailed-history-tbody">
+                                        <!-- Dynamically generated rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 4: ANALYTICS (FULL CHARTS) -->
+                <div id="view-analytics" class="view-pane">
+                    <div class="analytics-view-container">
+                        <div class="analytics-header">
+                            <h2>Market Intelligence & Volatility</h2>
+                            <p>Analyze historical exchange behaviors and market volatility graphs.</p>
+                        </div>
+                        <div class="analytics-layout-grid">
+                            <div class="analytics-left-panel">
+                                <div class="analytics-chart-widget main-analytics-chart">
+                                    <!-- Full chart widget -->
+                                    <div id="focused-chart-placeholder"></div>
+                                </div>
+                            </div>
+                            <div class="analytics-right-panel">
+                                <div class="volatility-card">
+                                    <h3>Volatility Analytics</h3>
+                                    <div class="metrics-volatility">
+                                        <div class="metric-vol">
+                                            <span class="vol-lbl">7-Day High</span>
+                                            <span class="vol-val" id="vol-7d-high">1.0984</span>
+                                        </div>
+                                        <div class="metric-vol">
+                                            <span class="vol-lbl">7-Day Low</span>
+                                            <span class="vol-val" id="vol-7d-low">1.0745</span>
+                                        </div>
+                                    </div>
+                                    <div class="gauge-container">
+                                        <div class="vol-label-status">Volatility status: <strong class="text-success">STABLE</strong></div>
+                                        <div class="gauge-bar-wrapper">
+                                            <div class="gauge-bar-fill" style="width: 24%; background-color: var(--success);"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="market-spread-card">
+                                    <h3>Interbank Spread Indicators</h3>
+                                    <ul class="spread-list">
+                                        <li>
+                                            <span>EUR/USD Spread</span>
+                                            <span class="text-success">0.0001 (0.01%)</span>
+                                        </li>
+                                        <li>
+                                            <span>GBP/USD Spread</span>
+                                            <span class="text-success">0.0002 (0.02%)</span>
+                                        </li>
+                                        <li>
+                                            <span>USD/JPY Spread</span>
+                                            <span class="text-alert">0.0240 (0.14%)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 5: SETTINGS -->
+                <div id="view-settings" class="view-pane">
+                    <div class="settings-view-container">
+                        <h2>System & Dashboard Settings</h2>
+                        <p>Configure default currencies, currency sync rates, and theme controls.</p>
+                        
+                        <div class="settings-grid">
+                            <div class="settings-card">
+                                <h3>User Preferences</h3>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label for="settings-base-currency">Default Base Currency</label>
+                                        <select id="settings-base-currency" class="form-control">
+                                            <option value="EUR" selected>EUR — Euro</option>
+                                            <option value="USD">USD — US Dollar</option>
+                                            <option value="GBP">GBP — British Pound</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="settings-sync-rate">Rate Update Frequency</label>
+                                        <select id="settings-sync-rate" class="form-control">
+                                            <option value="realtime">Real-time (Streamed)</option>
+                                            <option value="5m">Every 5 Minutes</option>
+                                            <option value="1h">Every Hour</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn-primary" id="save-settings-btn">Save Settings</button>
+                                </div>
+                            </div>
+
+                            <div class="settings-card">
+                                <h3>API Connection Details</h3>
+                                <p class="settings-sub-p">By default Valut connects to the public Frankfurter API. No API key is required.</p>
+                                <div class="api-status-box">
+                                    <span class="api-status-label">Frankfurter Connection:</span>
+                                    <span class="api-status-indicator online">
+                                        <span class="pulse-indicator bg-success"></span>
+                                        ONLINE (200 OK)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 6: HELP & SUPPORT -->
+                <div id="view-help" class="view-pane">
+                    <div class="help-view-container">
+                        <h2>Help & Support Center</h2>
+                        <p>Need assistance or have feedback? Find quick resources below.</p>
+                        <div class="help-grid">
+                            <div class="help-card">
+                                <h3>FAQ</h3>
+                                <div class="faq-item">
+                                    <h4>Is the data accurate?</h4>
+                                    <p>Yes, rates are updated in real-time using historical European Central Bank market reference rates provided by the Frankfurter API.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+SQLite Database initialized successfully.
+INFO:     127.0.0.1:59292 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50152 - "GET /landing HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57271 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59215 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59215 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /app.js HTTP/1.1" 200 OK
+Network error trying to contact Frankfurter API for base EUR: 
+INFO:     127.0.0.1:62665 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61230 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61230 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61230 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59696 - "GET /api/chart?from=GBP&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53247 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53247 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53247 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65425 - "GET /api/chart?from=JPY&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54965 - "GET /landing HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54965 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54965 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54965 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54965 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+Network error trying to contact Frankfurter API for base EUR: 
+INFO:     127.0.0.1:53695 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53695 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53695 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62737 - "GET /landing.html HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63523 - "GET /landing HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63523 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63523 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54367 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54367 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54367 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54367 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61250 - "GET /landing HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61250 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61250 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61250 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61250 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61250 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50472 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53596 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53596 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53596 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52347 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52347 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57793 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57793 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57793 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57793 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57793 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49362 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56530 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56530 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57602 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57602 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57602 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49303 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49303 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57656 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57656 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59859 - "GET /style.css HTTP/1.1" 200 OK
+Network error trying to contact Frankfurter API for base EUR: [Errno 11001] getaddrinfo failed
+INFO:     127.0.0.1:55455 - "GET /api/rates?base=EUR HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55455 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55455 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61781 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61781 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56633 - "GET /api/chart?from=EUR&to=USD&timeframe=1M HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60996 - "GET /landing HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60996 - "GET /style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60996 - "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 Not Found
